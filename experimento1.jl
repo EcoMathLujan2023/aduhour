@@ -142,3 +142,17 @@ end
 
 pos_caminante(0.98)
 
+caminata_aleatoria = Int16[]
+pasos = 100
+function pos_caminante2(p,pasos)
+    for i in 1:pasos
+        if evento_aleatorio(p) == true
+            push!(caminata_aleatoria,1)
+        else
+            push!(caminata_aleatoria,-1)
+        end
+    end
+end 
+
+pos_caminante2(0.6,pasos)
+caminata_aleatoria
