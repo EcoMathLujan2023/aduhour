@@ -142,9 +142,10 @@ end
 
 pos_caminante(0.98)
 
-caminata_aleatoria = Int16[]
+
 pasos = 100
 function pos_caminante2(p,pasos)
+    caminata_aleatoria = Int16[]
     for i in 1:pasos
         if evento_aleatorio(p) == true
             push!(caminata_aleatoria,1)
@@ -152,7 +153,41 @@ function pos_caminante2(p,pasos)
             push!(caminata_aleatoria,-1)
         end
     end
+    return caminata_aleatoria
 end 
 
-pos_caminante2(0.6,pasos)
-caminata_aleatoria
+eventos = pos_caminante2(0.5,pasos)
+sum(eventos)
+
+## Gráficos
+#
+
+using Plots
+
+plot(eventos)
+scatter!(eventos,legend=false)
+
+function crecimiento_exponencial(lambda, N0,tfinal)
+    pop = [N0]
+
+    for t in 1:tfinal-1
+        pop1 = pop[t] + lambda * pop[t]
+        push!(pop,pop1)
+    end
+    return pop
+end
+
+p1 = crecimiento_exponencial(0.1,1.0,100)
+plot(p1)
+
+p2 = crecimiento_exponencial(0.15,1.0,100)
+
+plot!(p2)
+
+p3 = crecimiento_exponencial(0.1,1.0,100)
+
+plot!(p3)
+
+
+## Simulación exponencial 
+
