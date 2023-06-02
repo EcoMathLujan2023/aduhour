@@ -100,3 +100,45 @@ for i in 1:10
         @info "Falso"
     end
 end
+
+# Funciones
+
+function evento_aleatorio(p)
+    if p > 1
+        exit
+    end
+    if rand() > p
+        return true
+    else
+        return false
+    end
+end
+eventos = Bool[]
+
+typeof(eventos)
+
+
+push!(eventos,false)
+
+for i in 1:100
+    push!(eventos, evento_aleatorio(0.1))
+end
+
+eventos
+
+count(eventos)
+
+## Hacer una función caminante aleatorio.
+## que nos diga si el caminante dio un paso 
+## hacia adelante o hacia atrás.
+
+function pos_caminante(p)
+    if evento_aleatorio(p) == true
+        @info "Adelante"
+    else
+        @info "Atrás"
+    end
+end
+
+pos_caminante(0.98)
+
