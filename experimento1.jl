@@ -167,7 +167,7 @@ using Plots
 plot(eventos)
 scatter!(eventos,legend=false)
 
-function crecimiento_exponencial(lambda, N0,tfinal)
+function crecimiento_exponencial(lambda, N0,tfinal) # asume intervalo de tiempo 1
     pop = [N0]
 
     for t in 1:tfinal-1
@@ -190,4 +190,12 @@ plot!(p3)
 
 
 ## Simulación exponencial 
+
+
+## Ejercicios.
+
+# Crecimiento exponencial determinístico
+# discreto con intervalo de tiempo h variable.
+# Modificando la función anterior. 
+# Subirlo al repositorio de Github 
 
