@@ -192,10 +192,3 @@ plot!(p3)
 ## Simulación exponencial 
 
 
-## Ejercicios.
-
-# Crecimiento exponencial determinístico
-# discreto con intervalo de tiempo h variable.
-# Modificando la función anterior. 
-# Subirlo al repositorio de Github 
-
