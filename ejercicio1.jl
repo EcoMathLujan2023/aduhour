@@ -23,15 +23,25 @@ end
 c1 = crec_exp(0.1,1-0,100,1)
 
 plot(c1)
-
-n = 10000
-de = zeros(n)
-λ = 0.1
-
-for i in 1:n
+function distr_exp(λ)
+    n = 10000
+    de = zeros(n)
+    for i in 1:n
     de[i] = -log(rand())/λ
+    end
+    return de
 end
 
+de = distr_exp(10*2/100)
 plot(de)
+
+# Para graficar la densidad de la distribución
+using StatsPlots
 density(de)
 
+function promedio (x)
+    p = sum(x)/length(x)
+    return p
+end
+
+sum(de)/length(de)
