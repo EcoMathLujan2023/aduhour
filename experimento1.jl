@@ -51,7 +51,7 @@ function crec_exp(λ,N0,tfinal,h=1)
     return pop, ts
 end
 
-c1 = crec_exp(0.1,1-0,100,1)
+c1 = crec_exp(0.1,10,100,1)
 
 plot(c1)
 function distr_exp(λ)
