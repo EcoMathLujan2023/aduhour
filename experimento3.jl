@@ -46,3 +46,9 @@ plot(crecimiento)
 
 cr2 = crecim_logístico_cosecha(1.2,10.0,200.0,50,200)
 plot(cr2)
+
+cr3 = crecim_logístico_cosecha(2.1,10.0,200,15)
+plot(cr3)
+
+cr4 = crecim_logístico_cosecha(3.1,10.0,200,25)
+plot(cr4)
