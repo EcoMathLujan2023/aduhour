@@ -52,3 +52,53 @@ plot(cr3)
 
 cr4 = crecim_logístico_cosecha(3.1,10.0,200,25)
 plot(cr4)
+
+
+##
+
+function crecim_logístico_cosecha(par,N₀,tfinal = 200, h=1.0)
+    λ, K, μ = par
+
+    pop = Float64[N₀]
+    ts = [0.0]
+    t=1
+    i+=1
+    while t < tfinal
+        pop1 = pop[t] * ((K - pop[t])/K) - μ
+        if t % tcosecha <= 0.5
+            #@info "repique!"
+            pop1 = 0.9 * pop1
+        end
+        push!(pop,pop1)
+    end
+    return pop
+end
+
+## 
+# Ejercicio dia 3 Esquema conceptual: 
+# Avanzar definiendo ecuaciones para las variables
+#  de estado quizás simplificando el esquema 
+# conceptual 
+
+# Variables de estado:
+
+# L: Lombrices adultas
+# Ls: Lombrices subadultas
+# Lc: Cocones de Lombrices
+
+# Pb: Poros biogénicos
+# Ag: Agregados biogénicos
+
+# Parámetros:
+# H: Humedad.
+# Dap: Densidad aparente
+# Mo: Materia orgánica del suelo.
+# U: Uso del suelo.
+
+# ecuaciones
+# Lombrices
+
+# Cocones
+# Lc = r * L
+
+
