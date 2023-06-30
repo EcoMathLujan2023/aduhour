@@ -88,7 +88,7 @@ plot(c4)
 
 # Crear una funcion para calcular la distribución exponencial con tasa λ
 
-function distr_exp(λ=)
+function distr_exp(λ)
     n = 10000
     de = zeros(n)
     #λ = .1

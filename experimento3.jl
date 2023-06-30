@@ -61,18 +61,34 @@ function crecim_logístico_cosecha(par,N₀,tfinal = 200, h=1.0)
 
     pop = Float64[N₀]
     ts = [0.0]
-    t=1
-    i+=1
+    t=0.0
+    i=1
     while t < tfinal
-        pop1 = pop[t] * ((K - pop[t])/K) - μ
-        if t % tcosecha <= 0.5
-            #@info "repique!"
-            pop1 = 0.9 * pop1
+        pop1 = pop[i] * h * (λ * pop[i] * ((K - pop[i])/K) - μ)
+        t = ts[i] + h 
+        i += 1
+
+        if pop1 < 0.0
+            pop1 = 0.0
         end
         push!(pop,pop1)
+        push!(ts,t)
     end
-    return pop
+    return ts,pop
 end
+
+
+# Diagrama de bifurcación de logistico determinista
+#
+valor_eq = Float64[]
+for μ in 0:0.1:10
+    #@info μ
+    p2 = crecim_logístico_cosecha( [0.2, 100, μ], 100, 1000, 0.01)
+    t,p = p2
+    push!( valor_eq,p[end])
+end
+
+plot(0:0.1:10,valor_eq)
 
 ## 
 # Ejercicio dia 3 Esquema conceptual: 
